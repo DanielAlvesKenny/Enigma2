@@ -1669,7 +1669,7 @@ document.getElementById("bg").src=
 }
 
 
-let tempoCofre = 15 * 60 ;
+let tempoCofre = 15 * 60  ;
 let intervaloCofre = null;
 let cofreTravado = false;
 
@@ -1690,7 +1690,8 @@ function iniciarTimerCofre() {
 
         if (tempoCofre <= 0) {
 
-    clearInterval(intervaloCofre);
+     clearInterval(intervaloCofre);
+    intervaloCofre = null;
     cofreTravado = true;
 
     document.getElementById("timerCofre").innerText =
@@ -1701,7 +1702,7 @@ function iniciarTimerCofre() {
     setStatusVault(
 
         "⏳ TEMPO ESGOTADO ⏳",
-        "#ff3333",
+        "#7CFF72",
 
         "☢ MISSÃO FRACASSADA ☢<br>PROTOCOLO ΣNIGMA ENCERRADO",
         "#ff3333",
