@@ -1121,6 +1121,29 @@ gammaLock.classList.remove("open");
 erros=0;
 updateBombs();
 
+/* RESET TIMER */
+
+clearInterval(intervaloCofre);
+
+tempoCofre = 15 * 60;
+cofreTravado = false;
+intervaloCofre = null;
+
+document.getElementById("tempoValor").innerText =
+"15:00";
+
+document.getElementById("timerCofre").innerHTML = `
+<span id="timerLabel">
+BLOQUEIO TOTAL EM:
+</span>
+
+<span id="tempoValor">
+15:00
+</span>
+`;
+
+iniciarTimerCofre();
+
 setStatus(
 "Aguardando código...",
 "#42e6ff"
@@ -1315,6 +1338,18 @@ return false;
 }
 
 function testar(){
+
+    if(cofreTravado){
+
+tocarSom("sndFail");
+
+setStatus(
+"☢ SISTEMA BLOQUEADO ☢",
+"#ff3333"
+);
+
+return;
+}
 
 let n=parseInt(current);
 
@@ -1634,7 +1669,7 @@ document.getElementById("bg").src=
 }
 
 
-let tempoCofre = 15 * 60;
+let tempoCofre = 15 * 60 ;
 let intervaloCofre = null;
 let cofreTravado = false;
 
